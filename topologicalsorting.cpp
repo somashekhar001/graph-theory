@@ -41,11 +41,14 @@ int main(){
         }
     }
     reverse(topo.begin(),topo.end());
-    /*for(auto x:topo){
+    for(auto x:topo){
         cout<<x<<" ";
     }
-    cout<<"\n";*/
-// --- 2nd method using cnt array of incoming edges ---(O(n+m))
+    cout<<"\n";
+    
+ //if graph "donot have cycle" use "1st method" which gives you topo vector which is topological order of given directed acyclic graph
+ //if graph "can have cycle" use "2nd method" which gives you topo vector which is topological order of given graph if it has cycle it will detect cycle.    
+// --- 2nd method using cnt array of incoming edges ---(O(n+m)(kahn's algorithm))
      vis1.assign(n+1,0);
     for(int i=1;i<=n;i++){
         if(cnt[i]==0 && !vis1[i]){
